@@ -51,5 +51,5 @@ testSubject.next({
 
 testSubject.next({
     aaa:"AAAAAA",
-    bbb:"BBBAAA"
+    bbb:"BBBBBB"
 })
