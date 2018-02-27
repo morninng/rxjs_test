@@ -1,12 +1,8 @@
 import { Observable } from 'rxjs/Observable';
-import { ReplaySubject } from 'rxjs/ReplaySubject';
 import 'rxjs/add/operator/switchMap';
-import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/partition';
-import 'rxjs/add/observable/of';
 import 'rxjs/add/observable/timer';
 
-const number_sub = new ReplaySubject<number>(1);
 
 
 const [evens, odd] = Observable.timer(0, 5000)
@@ -17,7 +13,7 @@ const [evens, odd] = Observable.timer(0, 5000)
 const oddSubscription = 
 odd.switchMap((data: number) => {
 
-    console.log('pzrent', data);
+    console.log('parent', data);
     if(evenSubscription){
         evenSubscription.unsubscribe()
     }
@@ -33,7 +29,7 @@ odd.switchMap((data: number) => {
 const evenSubscription = 
 evens.switchMap((data: number) => {
 
-    console.log('pzrent', data);
+    console.log('parent', data);
     if(oddSubscription){
         oddSubscription.unsubscribe()
     }
